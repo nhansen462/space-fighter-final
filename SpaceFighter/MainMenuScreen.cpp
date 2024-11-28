@@ -21,15 +21,15 @@ void MainMenuScreen::LoadContent(ResourceManager& resourceManager)
 	m_texturePosition = Game::GetScreenCenter() - Vector2::UNIT_Y * 150;
 
 	// Create the menu items
-	const int COUNT = 3;
+	const int COUNT = 5;
 	MenuItem *pItem;
 	Font::SetLoadSize(20, true);
 	Font *pFont = resourceManager.Load<Font>("Fonts\\Ethnocentric.ttf");
 
 	SetDisplayCount(COUNT);
 
-	enum Items { START_GAME, LEVEL_TWO, QUIT };
-	std::string text[COUNT] = { "Start Game", "Level Two", "Quit" };
+	enum Items { START_GAME, LEVEL_TWO, LEVEL_THREE, LEVEL_FOUR, QUIT };
+	std::string text[COUNT] = { "Start Game", "Level Two", "Nicholas Test", "Jordan Test", "Quit" };
 
 	for (int i = 0; i < COUNT; i++)
 	{
@@ -51,7 +51,17 @@ void MainMenuScreen::LoadContent(ResourceManager& resourceManager)
 	GetMenuItem(LEVEL_TWO)->SetOnSelect([this]() {
 		SetOnRemove([this]() { AddScreen(new GameplayScreen(1)); });
 		Exit();
-		});
+	});
+
+	GetMenuItem(LEVEL_THREE)->SetOnSelect([this]() {
+		SetOnRemove([this]() { AddScreen(new GameplayScreen(2)); });
+		Exit();
+	});
+
+	GetMenuItem(LEVEL_FOUR)->SetOnSelect([this]() {
+		SetOnRemove([this]() { AddScreen(new GameplayScreen(3)); });
+		Exit();
+	});
 
 	// bind the Exit method to the quit menu item
 	GetMenuItem(QUIT)->SetOnSelect(std::bind(&MainMenuScreen::Exit, this));

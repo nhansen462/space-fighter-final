@@ -42,7 +42,7 @@ public:
 private:
 
 	float m_cooldown = 0;
-	float m_cooldownSeconds = 0.35;
+	float m_cooldownSeconds = 0.05;
 
 
 };
