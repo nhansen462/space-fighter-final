@@ -1,7 +1,7 @@
 
 
 #include "Level04.h"
-#include "BioEnemyShip.h"
+#include "EvasiveEnemyShip.h"
 
 
 void Level04::LoadContent(ResourceManager& resourceManager)
@@ -37,7 +37,7 @@ void Level04::LoadContent(ResourceManager& resourceManager)
 		delay += delays[i];
 		position.Set(xPositions[i] * Game::GetScreenWidth(), -pTexture->GetCenter().Y);
 
-		BioEnemyShip* pEnemy = new BioEnemyShip();
+		EvasiveEnemyShip* pEnemy = new EvasiveEnemyShip();
 		pEnemy->SetTexture(pTexture);
 		pEnemy->SetCurrentLevel(this);
 		pEnemy->Initialize(position, (float)delay);
