@@ -44,6 +44,12 @@ public:
 	// Gets whether the enemy has started or not
 	virtual bool GetStarted() { return m_started; }
 
+	// Gets how many times the enemy has changed their target location
+	virtual int GetMoveChange() { return m_moveChange; }
+
+	// Adds one to the moveChange variable
+	virtual void AddMoveChange() { m_moveChange++; }
+
 private:
 
 	Texture* m_pTexture = nullptr;
@@ -51,5 +57,6 @@ private:
 	int m_targetX = 0;
 	int m_targetY = 0;
 	bool m_started = false;
+	int m_moveChange = 0;
 
 };
