@@ -30,22 +30,22 @@ public:
 	virtual void SetRandomX(int targetX) { m_targetX = targetX; };
 
 	// Gets the m_targetX variable
-	virtual int GetRandomX() { return m_targetX; }
+	virtual int GetRandomX() const { return m_targetX; }
 
 	// Sets the m_targetY variable
 	virtual void SetRandomY(int targetY) { m_targetY = targetY; };
 
 	// Gets the m_targetY variable
-	virtual int GetRandomY() { return m_targetY; }
+	virtual int GetRandomY() const { return m_targetY; }
 
 	// Changes the m_started variable to show that the enemy has started
 	virtual void EnemyStarted() { m_started = true; }
 
 	// Gets whether the enemy has started or not
-	virtual bool GetStarted() { return m_started; }
+	virtual bool GetStarted() const { return m_started; }
 
 	// Gets how many times the enemy has changed their target location
-	virtual int GetMoveChange() { return m_moveChange; }
+	virtual int GetMoveChange() const { return m_moveChange; }
 
 	// Adds one to the moveChange variable
 	virtual void AddMoveChange() { m_moveChange++; }

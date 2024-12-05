@@ -81,5 +81,4 @@ private:
 	bool m_isConfinedToScreen = false;
 
 	Texture* m_pTexture = nullptr;
-
 };

@@ -18,7 +18,7 @@ public:
 
 	/** @brief Instantiate a game object. */
 	GameObject();
-	virtual ~GameObject() { s_count--; }
+	virtual ~GameObject() { }
 
 	/** @brief Set the current level.
 		@param pLevel A pointer to the current level.

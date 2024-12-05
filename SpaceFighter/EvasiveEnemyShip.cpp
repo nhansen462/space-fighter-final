@@ -6,7 +6,7 @@
 
 EvasiveEnemyShip::EvasiveEnemyShip()
 {
-	SetSpeed(150);
+	SetSpeed(200);
 	SetMaxHitPoints(1);
 	SetCollisionRadius(20);
 }
@@ -53,7 +53,7 @@ void EvasiveEnemyShip::Update(const GameTime& gameTime)
 			// Run if the enemy is within 25 pixels of their desired Y value
 			if (position.Y - desiredY >= -25 && position.Y - desiredY <= 25)
 			{
-				desiredY = std::rand() % width + 1;
+				desiredY = std::rand() % height + 1;
 				SetRandomY(desiredY);
 				AddMoveChange();
 			}
@@ -73,14 +73,14 @@ void EvasiveEnemyShip::Update(const GameTime& gameTime)
 				x *= GetSpeed() * gameTime.GetElapsedTime();
 			}
 			// Move up check
-			if (position.Y < desiredY)
+			if (position.Y > desiredY)
 			{
-				y *= GetSpeed() * gameTime.GetElapsedTime();
+				y *= GetSpeed() * gameTime.GetElapsedTime() * -1;
 			}
 			// Move down
 			else
 			{
-				y *= GetSpeed() * gameTime.GetElapsedTime() * -1;
+				y *= GetSpeed() * gameTime.GetElapsedTime();
 			}
 
 			TranslatePosition(x, y);
@@ -92,14 +92,12 @@ void EvasiveEnemyShip::Update(const GameTime& gameTime)
 			TranslatePosition(x, GetSpeed() * gameTime.GetElapsedTime());
 		}
 
-		std::cout << position.X << "       " << desiredX << "          " << GetMoveChange() <<"\n";
+		// Debug Dialog, uncomment if changing movement to see target coordinates.
+		//std::cout << "Desired X:" << desiredX << "          " << "Desired Y:" << desiredY << "          " << GetMoveChange() <<"\n";
 
+		// Count debug dialog
+		//std::cout << GetCount() << "\n";
 
-		//float x = 0;//sin(gameTime.GetTotalTime() * Math::PI + GetIndex());
-		//x *= GetSpeed() * gameTime.GetElapsedTime() * 1.4f;// + rand;
-		//TranslatePosition(x, GetSpeed() * gameTime.GetElapsedTime());
-		//if (count > (Math::GetRandomInt(30, 180))) { rand *= -1; }
-		//count++;
 		if (!IsOnScreen()) Deactivate();
 		
 	}

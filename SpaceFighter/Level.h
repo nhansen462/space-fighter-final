@@ -109,6 +109,12 @@ public:
 		return pClosest;
 	}
 
+	// Returns the current level number
+	static int GetLevelNum() { return s_levelNum; }
+
+	// Adds one to the level number
+	static void AddLevelNum() { s_levelNum++; }
+
 
 protected:
 
@@ -163,5 +169,7 @@ private:
 	virtual unsigned int GetTotalSectorCount() const { return m_totalSectorCount; }
 
 	virtual std::vector<GameObject*>* GetSectors() { return m_pSectors; }
+
+	static int s_levelNum;
 
 };

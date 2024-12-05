@@ -42,6 +42,17 @@ public:
 		@return Returns the collision type of the enemy ship. */
 	virtual CollisionType GetCollisionType() const { return CollisionType::Enemy | CollisionType::Ship; }
 
+	// Gets the current count of enemies
+	static int GetCount() { return s_count; }
+
+	// Increases the count of enemies by 1
+	static void AddCount() { s_count++; }
+
+	// Decreases the count of enemies by 1
+	static void SubCount() { s_count--; }
+
+	// Does the same thing as GameObject::Deactivate, and decreases the count by 1
+	virtual void Deactivate();
 
 protected:
 
@@ -57,5 +68,5 @@ private:
 
 	double m_activationSeconds = 0;
 
-
+	static int s_count;
 };
