@@ -94,6 +94,9 @@ protected:
 		@return Returns the max hit points of the ship. */
 	virtual float GetMaxHitPoints() const { return m_maxHitPoints; }
 
+	// Gets the current hit points of the ship
+	virtual float GetHP() { return m_hitPoints; };
+
 
 private:
 

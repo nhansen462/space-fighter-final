@@ -3,8 +3,11 @@
 #include "EnemyShip.h"
 #include "Blaster.h"
 #include "GameplayScreen.h"
+#include "PlayerShip.h"
 
 std::vector<Explosion *> Level::s_explosions;
+
+int Level::s_levelNum = 1;
 
 // Collision Callback Functions
 
@@ -140,6 +143,21 @@ void Level::Update(const GameTime& gameTime)
 	for (Explosion *pExplosion : s_explosions) pExplosion->Update(gameTime);
 
 	if (!m_pPlayerShip->IsActive()) GetGameplayScreen()->Exit();
+
+	// Exits the level upon the last enemy dying
+	if (EnemyShip::GetCount() <= 0) 
+	{
+		// Change the number to the current amount of levels
+		if (GetLevelNum() >= 4)
+		{
+			GetGameplayScreen()->Exit();
+		}
+		else
+		{
+			GetGameplayScreen()->GameplayScreen::LoadLevel(GetLevelNum());
+		}
+		AddLevelNum();
+	}
 }
 
 

@@ -50,5 +50,4 @@ private:
 	Level *m_pLevel = nullptr;
 
 	ResourceManager *m_pResourceManager = nullptr;
-
 };

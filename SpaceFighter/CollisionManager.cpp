@@ -48,7 +48,7 @@ void CollisionManager::CheckCollision(GameObject *pGameObject1, GameObject *pGam
 			{
 				if (!swapped) c.Callback(pGameObject1, pGameObject2);
 				else c.Callback(pGameObject2, pGameObject1);
-				std::cout << "A ship has been destroyed\n";
+				//std::cout << "A ship has been destroyed\n";
 			}
 			return;
 		}
