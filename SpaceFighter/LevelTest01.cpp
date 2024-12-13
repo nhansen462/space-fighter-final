@@ -1,39 +1,25 @@
-
-
-#include "Level03.h"
+#include "LevelTest01.h"
 #include "BioEnemyShip.h"
 
 
-void Level03::LoadContent(ResourceManager& resourceManager)
+void LevelTest01::LoadContent(ResourceManager& resourceManager)
 {
 	// Setup enemy ships
 	Texture* pTexture = resourceManager.Load<Texture>("Textures\\BioEnemyShip.png");
 
-	const int COUNT = 24;
-
-	double xPositions[COUNT] =
-	{
-		0.25, 0.2, 0.3,
-		0.75, 0.8, 0.7,
-		0.1, 0.9, 0.2, 0.8, 0.3, 0.7, 0.4, 0.6, 0.5,
-		0.5, 0.4, 0.6, 0.3, 0.7, 0.2, 0.8, 0.1, 0.9
-	};
-
-	double delays[COUNT] =
-	{
-		0.0, 0.25, 0.25,
-		3.0, 0.25, 0.25,
-		3.25, 0.0, 0.5, 0.0, 0.5, 0.0, 0.5, 0.0, 0.5,
-		3.25, 0.5, 0.0, 0.5, 0.0, 0.5, 0.0, 0.5, 0.0
-	};
+	const int COUNT = 10000;
 
 	float delay = 3.0; // start delay
+	float xPos = 0.01;
 	Vector2 position;
 
 	for (int i = 0; i < COUNT; i++)
 	{
-		delay += delays[i];
-		position.Set(xPositions[i] * Game::GetScreenWidth(), -pTexture->GetCenter().Y);
+		delay += 0.001;
+		position.Set(xPos * Game::GetScreenWidth(), -pTexture->GetCenter().Y);
+
+		xPos += 0.05;
+		if (xPos >= 1) { xPos = 0.01; }
 
 		BioEnemyShip* pEnemy = new BioEnemyShip();
 		pEnemy->SetTexture(pTexture);

@@ -28,8 +28,8 @@ void MainMenuScreen::LoadContent(ResourceManager& resourceManager)
 
 	SetDisplayCount(COUNT);
 
-	enum Items { START_GAME, LEVEL_TWO, LEVEL_THREE, LEVEL_FOUR, QUIT };
-	std::string text[COUNT] = { "Start Game", "Level Two", "Nicholas Test", "Jordan Test", "Quit" };
+	enum Items { START_GAME, LEVEL_TWO, LEVEL_TEST_ONE, LEVEL_TEST_TWO, QUIT };
+	std::string text[COUNT] = { "Start Game", "Level Two", "Nicholas Test", "Jordan Test", "Quit"};
 
 	for (int i = 0; i < COUNT; i++)
 	{
@@ -53,13 +53,13 @@ void MainMenuScreen::LoadContent(ResourceManager& resourceManager)
 		Exit();
 	});
 
-	GetMenuItem(LEVEL_THREE)->SetOnSelect([this]() {
-		SetOnRemove([this]() { AddScreen(new GameplayScreen(2)); });
+	GetMenuItem(LEVEL_TEST_ONE)->SetOnSelect([this]() {
+		SetOnRemove([this]() { AddScreen(new GameplayScreen(-1)); });
 		Exit();
 	});
 
-	GetMenuItem(LEVEL_FOUR)->SetOnSelect([this]() {
-		SetOnRemove([this]() { AddScreen(new GameplayScreen(3)); });
+	GetMenuItem(LEVEL_TEST_TWO)->SetOnSelect([this]() {
+		SetOnRemove([this]() { AddScreen(new GameplayScreen(-2)); });
 		Exit();
 	});
 

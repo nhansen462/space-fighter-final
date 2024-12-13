@@ -45,7 +45,10 @@ void Level01::LoadContent(ResourceManager& resourceManager)
 	}
 
 	// Setup background
-	SetBackground(resourceManager.Load<Texture>("Textures\\SpaceBackground01.png"));
+	SetBackground(resourceManager.Load<Texture>("Textures\\SpaceBackground02.png"));
+
+	//Set the number to whatever the level index is
+	Level::SetLevelNum(0);
 
 	Level::LoadContent(resourceManager);
 }
