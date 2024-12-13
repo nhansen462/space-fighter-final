@@ -6,6 +6,9 @@
 #include "Level02.h"
 #include "Level03.h"
 #include "Level04.h"
+#include "Level05.h"
+#include "LevelTest01.h"
+#include "LevelTest02.h"
 
 GameplayScreen::GameplayScreen(const int levelIndex)
 	: m_levelIndex(levelIndex)
@@ -30,10 +33,13 @@ void GameplayScreen::LoadLevel(const int levelIndex)
 
 	switch (levelIndex)
 	{
+	case -2: m_pLevel = new LevelTest02(); break;
+	case -1: m_pLevel = new LevelTest01(); break;
 	case 0: m_pLevel = new Level01(); break;
 	case 1: m_pLevel = new Level02(); break;
 	case 2: m_pLevel = new Level03(); break;
 	case 3: m_pLevel = new Level04(); break;
+	case 4: m_pLevel = new Level05(); break;
 	}
 
 	m_pLevel->SetGameplayScreen(this);

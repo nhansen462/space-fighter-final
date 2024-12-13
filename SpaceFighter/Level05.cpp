@@ -1,10 +1,10 @@
 
 
-#include "Level04.h"
-#include "EvasiveEnemyShip.h"
+#include "Level05.h"
+#include "AnnoyingEnemyShip.h"
 
 
-void Level04::LoadContent(ResourceManager& resourceManager)
+void Level05::LoadContent(ResourceManager& resourceManager)
 {
 	// Setup enemy ships
 	Texture* pTexture = resourceManager.Load<Texture>("Textures\\BioEnemyShip.png");
@@ -37,7 +37,7 @@ void Level04::LoadContent(ResourceManager& resourceManager)
 		delay += delays[i];
 		position.Set(xPositions[i] * Game::GetScreenWidth(), -pTexture->GetCenter().Y);
 
-		EvasiveEnemyShip* pEnemy = new EvasiveEnemyShip();
+		AnnoyingEnemyShip* pEnemy = new AnnoyingEnemyShip();
 		pEnemy->SetTexture(pTexture);
 		pEnemy->SetCurrentLevel(this);
 		pEnemy->Initialize(position, (float)delay);
@@ -48,7 +48,7 @@ void Level04::LoadContent(ResourceManager& resourceManager)
 	SetBackground(resourceManager.Load<Texture>("Textures\\SpaceBackground02.png"));
 
 	//Set the number to whatever the level index is
-	Level::SetLevelNum(3);
+	Level::SetLevelNum(4);
 
 	Level::LoadContent(resourceManager);
 }

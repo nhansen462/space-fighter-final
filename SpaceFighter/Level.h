@@ -112,6 +112,9 @@ public:
 	// Returns the current level number
 	static int GetLevelNum() { return s_levelNum; }
 
+	// Sets the current level number
+	static void SetLevelNum(int levelNum) { s_levelNum = levelNum; }
+
 	// Adds one to the level number
 	static void AddLevelNum() { s_levelNum++; }
 

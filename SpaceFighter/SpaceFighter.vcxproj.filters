@@ -101,14 +101,26 @@
     <ClCompile Include="Weapon.cpp">
       <Filter>Source Files\Game Objects\Weapons</Filter>
     </ClCompile>
+    <ClCompile Include="LevelTest01.cpp">
+      <Filter>Source Files\Levels</Filter>
+    </ClCompile>
+    <ClCompile Include="LevelTest02.cpp">
+      <Filter>Source Files\Levels</Filter>
+    </ClCompile>
+    <ClCompile Include="EvasiveEnemyShip.cpp">
+      <Filter>Source Files\Game Objects\Ships</Filter>
+    </ClCompile>
+    <ClCompile Include="AnnoyingEnemyShip.cpp">
+      <Filter>Source Files\Game Objects\Ships</Filter>
+    </ClCompile>
     <ClCompile Include="Level03.cpp">
       <Filter>Source Files\Levels</Filter>
     </ClCompile>
     <ClCompile Include="Level04.cpp">
       <Filter>Source Files\Levels</Filter>
     </ClCompile>
-    <ClCompile Include="EvasiveEnemyShip.cpp">
-      <Filter>Source Files\Game Objects\Ships</Filter>
+    <ClCompile Include="Level05.cpp">
+      <Filter>Source Files\Levels</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -166,14 +178,26 @@
     <ClInclude Include="Explosion.h">
       <Filter>Source Files\Game Objects\Misc</Filter>
     </ClInclude>
+    <ClInclude Include="LevelTest01.h">
+      <Filter>Source Files\Levels</Filter>
+    </ClInclude>
+    <ClInclude Include="LevelTest02.h">
+      <Filter>Source Files\Levels</Filter>
+    </ClInclude>
+    <ClInclude Include="EvasiveEnemyShip.h">
+      <Filter>Source Files\Game Objects\Ships</Filter>
+    </ClInclude>
+    <ClInclude Include="AnnoyingEnemyShip.h">
+      <Filter>Source Files\Game Objects\Ships</Filter>
+    </ClInclude>
     <ClInclude Include="Level03.h">
       <Filter>Source Files\Levels</Filter>
     </ClInclude>
     <ClInclude Include="Level04.h">
       <Filter>Source Files\Levels</Filter>
     </ClInclude>
-    <ClInclude Include="EvasiveEnemyShip.h">
-      <Filter>Source Files\Game Objects\Ships</Filter>
+    <ClInclude Include="Level05.h">
+      <Filter>Source Files\Levels</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

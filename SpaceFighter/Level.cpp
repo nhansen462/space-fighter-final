@@ -147,8 +147,9 @@ void Level::Update(const GameTime& gameTime)
 	// Exits the level upon the last enemy dying
 	if (EnemyShip::GetCount() <= 0) 
 	{
+		AddLevelNum();
 		// Change the number to the current amount of levels
-		if (GetLevelNum() >= 4)
+		if (GetLevelNum() >= 2)
 		{
 			GetGameplayScreen()->Exit();
 		}
@@ -156,7 +157,7 @@ void Level::Update(const GameTime& gameTime)
 		{
 			GetGameplayScreen()->GameplayScreen::LoadLevel(GetLevelNum());
 		}
-		AddLevelNum();
+		
 	}
 }
 

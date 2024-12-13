@@ -55,6 +55,12 @@ public:
 		@param isConfined True to confine the player ship to the screen, false otherwise. */
 	virtual void ConfineToScreen(const bool isConfined = true) { m_isConfinedToScreen = isConfined; }
 
+	//Set's the m_playerPosition variable to the current position
+	static void SetPlayerPosition(Vector2 playerPosition) { s_playerPosition = playerPosition; }
+
+	//Get's the player's current position
+	static Vector2 GetPlayerPosition() { return s_playerPosition; }
+
 
 protected:
 
@@ -81,4 +87,6 @@ private:
 	bool m_isConfinedToScreen = false;
 
 	Texture* m_pTexture = nullptr;
+
+	static Vector2 s_playerPosition;
 };

@@ -2,6 +2,8 @@
 #include "PlayerShip.h"
 #include "Level.h"
 
+Vector2 PlayerShip::s_playerPosition = { 0,0 };
+
 void PlayerShip::LoadContent(ResourceManager& resourceManager)
 {
 	ConfineToScreen();
@@ -13,8 +15,19 @@ void PlayerShip::LoadContent(ResourceManager& resourceManager)
 	pAudio->SetVolume(0.5f);
 	GetWeapon("Main Blaster")->SetFireSound(pAudio);
 
-	SetPosition(Game::GetScreenCenter() + Vector2::UNIT_Y * 300);
-	
+	Vector2 defaultPosition = { 0,0 };
+	Vector2 lastPosition = GetPlayerPosition();
+	//Sets the player ship to the start position if this is the first level initialized
+	if (lastPosition == defaultPosition)
+	{
+		SetPosition(Game::GetScreenCenter() + Vector2::UNIT_Y * 300);
+	}
+	else
+	{
+		SetPosition(lastPosition.X, lastPosition.Y);
+	}
+
+	//SetPosition(Game::GetScreenCenter() + Vector2::UNIT_Y * 300);
 
 }
 
@@ -113,6 +126,10 @@ void PlayerShip::Update(const GameTime& gameTime)
 			m_velocity.Y = 0;
 		}
 	}
+
+	SetPlayerPosition(GetPosition());
+
+	//std::cout << GetPlayerPosition();
 
 	Ship::Update(gameTime);
 }
