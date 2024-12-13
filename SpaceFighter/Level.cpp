@@ -149,7 +149,7 @@ void Level::Update(const GameTime& gameTime)
 	{
 		AddLevelNum();
 		// Change the number to the current amount of levels
-		if (GetLevelNum() >= 2)
+		if (GetLevelNum() >= 5)
 		{
 			GetGameplayScreen()->Exit();
 		}
