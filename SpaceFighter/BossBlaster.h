@@ -4,15 +4,15 @@
 #include "Weapon.h"
 
 /** @brief Represents a blaster weapon that can be fired by a game object. */
-class Blaster : public Weapon
+class BossBlaster : public Weapon
 {
 
 public:
 
 	/** @brief Instantiate a blaster object.
 		@param isActive A flag to determine if the weapon is active. */
-	Blaster(const std::string &key) : Weapon(key) { }
-	virtual ~Blaster() { }
+	BossBlaster(const std::string& key) : Weapon(key) { }
+	virtual ~BossBlaster() { }
 
 	/** @brief Update the blaster.
 		@param gameTime A reference to the game time object. */
@@ -42,7 +42,7 @@ public:
 private:
 
 	float m_cooldown = 0;
-	float m_cooldownSeconds = 0.1;
+	float m_cooldownSeconds = 0;
 
 
 };

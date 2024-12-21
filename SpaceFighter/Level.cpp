@@ -3,6 +3,7 @@
 #include "EnemyShip.h"
 #include "Blaster.h"
 #include "Bomb.h"
+#include "BossBlaster.h"
 #include "GameplayScreen.h"
 #include "PlayerShip.h"
 
@@ -51,6 +52,7 @@ Level::Level()
 
 	// Setup player ship
 	m_pPlayerShip = new PlayerShip();
+
 	Blaster *pBlaster = new Blaster("Main Blaster");
 	pBlaster->SetProjectilePool(&m_projectiles);
 	m_pPlayerShip->AttachItem(pBlaster, Vector2::UNIT_Y * -20);
@@ -59,6 +61,11 @@ Level::Level()
 	pBomb->SetTriggerType(TriggerType::Secondary);
 	pBomb->SetProjectilePool(&m_projectiles);
 	m_pPlayerShip->AttachItem(pBomb, Vector2::UNIT_Y * -20);
+
+	m_pBossShip = new Boss();
+	BossBlaster* pBossBlaster = new BossBlaster("Boss Blaster");
+	pBossBlaster->SetProjectilePool(&m_projectiles);
+	m_pBossShip->AttachItem(pBossBlaster, Vector2::UNIT_Y * 20);
 
 	for (int i = 0; i < 1500; i++)
 	{

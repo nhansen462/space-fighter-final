@@ -12,6 +12,7 @@ public:
 
 	/** @brief Instantiate a projectile object. */
 	Projectile();
+	Projectile(Vector2 direction);
 	virtual ~Projectile() { }
 
 	/** @brief Set the texture that will be used to render the projectile.

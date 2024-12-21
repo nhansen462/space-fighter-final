@@ -7,7 +7,7 @@
 EvasiveEnemyShip::EvasiveEnemyShip()
 {
 	SetSpeed(200);
-	SetMaxHitPoints(10);
+	SetMaxHitPoints(2);
 	SetCollisionRadius(20);
 }
 

@@ -8,7 +8,7 @@ int count = 0;
 AnnoyingEnemyShip::AnnoyingEnemyShip()
 {
 	SetSpeed(250);
-	SetMaxHitPoints(15);
+	SetMaxHitPoints(2);
 	SetCollisionRadius(20);
 }
 

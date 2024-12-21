@@ -12,12 +12,23 @@ void Blaster::Fire(TriggerType triggerType)
 	if (!CanFire()) return;
 	if (!triggerType.Contains(GetTriggerType())) return;
 
-	Projectile* pProjectile = GetProjectile();
-	if (!pProjectile) return;
+	Projectile* pMiddle = GetProjectile();
+	if (!pMiddle) return;
+	Vector2 currentPos = GetPosition();
+	pMiddle->Activate(currentPos, IsAttachedToPlayer());
+
+	Projectile* pLeft = GetProjectile();
+	if (!pLeft) return;
+	currentPos.X += 10;
+	pLeft->Activate(currentPos, IsAttachedToPlayer());
+
+	Projectile* pRight = GetProjectile();
+	if (!pRight) return;
+	currentPos.X -= 20;
+	pRight->Activate(currentPos, IsAttachedToPlayer());
 
 	AudioSample* pAudio = GetFireSound();
 	if (pAudio) pAudio->Play();
 
-	pProjectile->Activate(GetPosition(), IsAttachedToPlayer());
 	m_cooldown = m_cooldownSeconds;
 }

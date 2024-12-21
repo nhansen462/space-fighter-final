@@ -37,15 +37,10 @@ public:
 		@remark If the triggerType doesn't match that of the Blaster, the command will be ignored. */
 	virtual void Fire(TriggerType triggerType);
 
-	virtual void SetChargingSound(AudioSample* pSound) { m_pRecharging = pSound; }
-
-	virtual AudioSample* GetChargingSound() { return m_pRecharging; }
-
 
 private:
 
-	float m_cooldown = 3;
-	float m_cooldownSeconds = 10;
+	float m_cooldown = 1;
+	float m_cooldownSeconds = 3;
 
-	AudioSample* m_pRecharging = nullptr;
 };

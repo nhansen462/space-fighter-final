@@ -10,11 +10,17 @@ Projectile::Projectile()
 	SetCollisionRadius(9);
 }
 
+Projectile::Projectile(Vector2 direction)
+{
+	SetDirection(direction);
+	SetCollisionRadius(9);
+}
+
 void Projectile::Update(const GameTime& gameTime)
 {
 	if (IsActive())
 	{
-		Vector2 translation = m_direction * m_speed * gameTime.GetElapsedTime();
+		Vector2 translation = m_direction * m_speed * gameTime.GetElapsedTime() * (WasShotByPlayer() ? 1 : -1);
 		TranslatePosition(translation);
 
 		Vector2 position = GetPosition();

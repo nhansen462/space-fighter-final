@@ -3,6 +3,7 @@
 
 #include "KatanaEngine.h"
 #include "PlayerShip.h"
+#include "Boss.h"
 #include "CollisionManager.h"
 #include "Explosion.h"
 
@@ -120,6 +121,10 @@ public:
 	// Adds one to the level number
 	static void AddLevelNum() { s_levelNum++; }
 
+	Boss* m_pBossShip;
+	std::vector<Projectile*> m_projectiles;
+
+
 
 protected:
 
@@ -163,7 +168,6 @@ private:
 	std::vector<GameObject*>::iterator m_gameObjectIt;
 
 	PlayerShip* m_pPlayerShip;
-	std::vector<Projectile*> m_projectiles;
 
 	void CheckCollisions(std::vector<GameObject*>& sector);
 
