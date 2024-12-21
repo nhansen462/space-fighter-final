@@ -61,7 +61,6 @@ public:
 	//Get's the player's current position
 	static Vector2 GetPlayerPosition() { return s_playerPosition; }
 
-
 protected:
 
 	/** @brief Sets the responsiveness of the player ship.
@@ -89,4 +88,6 @@ private:
 	Texture* m_pTexture = nullptr;
 
 	static Vector2 s_playerPosition;
+
+	int m_charges = 3;
 };

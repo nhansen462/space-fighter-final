@@ -41,6 +41,7 @@ void PlayerShip::HandleInput(const InputState& input)
 {
 	if (IsActive())
 	{
+		SetSpeed(500);
 		Vector2 direction;
 		if (input.IsKeyDown(Key::DOWN)) direction.Y++;
 		if (input.IsKeyDown(Key::UP)) direction.Y--;
@@ -51,6 +52,8 @@ void PlayerShip::HandleInput(const InputState& input)
 		if (input.IsKeyDown(Key::D)) direction.X++;
 		if (input.IsKeyDown(Key::A)) direction.X--;
 
+		if(input.IsKeyDown(Key::LSHIFT)) SetSpeed(200);
+
 		// Normalize the direction
 		if (direction.X != 0 && direction.Y != 0)
 		{
@@ -60,8 +63,8 @@ void PlayerShip::HandleInput(const InputState& input)
 		TriggerType type = TriggerType::None;
 		if (input.IsKeyDown(Key::SPACE)) type |= TriggerType::Primary;
 		if (input.IsKeyDown(Key::Z)) type |= TriggerType::Primary;
-		//if (input.IsKeyDown(Key::D)) type |= TriggerType::Secondary;
-		//if (input.IsKeyDown(Key::S)) type |= TriggerType::Special;
+		if (input.IsKeyDown(Key::X)) type |= TriggerType::Secondary;
+		//if (input.IsKeyDown(Key::X)) type |= TriggerType::Special;
 
 		//// Handle Xbox Controller
 		//GamePadState* pState = input.GetGamePadState(0);

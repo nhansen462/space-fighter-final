@@ -7,7 +7,13 @@ void LevelTest01::LoadContent(ResourceManager& resourceManager)
 	// Setup enemy ships
 	Texture* pTexture = resourceManager.Load<Texture>("Textures\\BioEnemyShip.png");
 
-	const int COUNT = 10000;
+	AudioSample* pBackground = resourceManager.Load<AudioSample>("Audio\\Music\\NightOfNights.mp3");
+	pBackground->SetVolume(0.15f);
+	pBackground->SetLooping(true);
+	SetBackgroundAudio(pBackground);
+	pBackground->Play();
+
+	const int COUNT = 3000;
 
 	float delay = 3.0; // start delay
 	float xPos = 0.01;
@@ -15,7 +21,7 @@ void LevelTest01::LoadContent(ResourceManager& resourceManager)
 
 	for (int i = 0; i < COUNT; i++)
 	{
-		delay += 0.001;
+		delay += 0.003;
 		position.Set(xPos * Game::GetScreenWidth(), -pTexture->GetCenter().Y);
 
 		xPos += 0.05;
