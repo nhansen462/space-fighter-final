@@ -2,6 +2,7 @@
 #include "Level.h"
 #include "EnemyShip.h"
 #include "Blaster.h"
+#include "Bomb.h"
 #include "GameplayScreen.h"
 #include "PlayerShip.h"
 
@@ -47,13 +48,19 @@ Level::Level()
 	
 	GameObject::SetCurrentLevel(this);
 
+
 	// Setup player ship
 	m_pPlayerShip = new PlayerShip();
 	Blaster *pBlaster = new Blaster("Main Blaster");
 	pBlaster->SetProjectilePool(&m_projectiles);
 	m_pPlayerShip->AttachItem(pBlaster, Vector2::UNIT_Y * -20);
 
-	for (int i = 0; i < 100; i++)
+	Bomb* pBomb = new Bomb("Screen Nuke");
+	pBomb->SetTriggerType(TriggerType::Secondary);
+	pBomb->SetProjectilePool(&m_projectiles);
+	m_pPlayerShip->AttachItem(pBomb, Vector2::UNIT_Y * -20);
+
+	for (int i = 0; i < 1500; i++)
 	{
 		Projectile *pProjectile = new Projectile();
 		m_projectiles.push_back(pProjectile);
@@ -80,6 +87,7 @@ Level::~Level()
 	delete[] m_pSectors;
 	delete m_pCollisionManager;
 	
+	
 	m_gameObjectIt = m_gameObjects.begin();
 	for (; m_gameObjectIt != m_gameObjects.end(); m_gameObjectIt++)
 	{
@@ -91,6 +99,7 @@ Level::~Level()
 void Level::LoadContent(ResourceManager& resourceManager)
 {
 	m_pPlayerShip->LoadContent(resourceManager);
+
 
 	// Setup explosions if they haven't been already
 	Explosion* pExplosion;
@@ -115,6 +124,9 @@ void Level::HandleInput(const InputState& input)
 	if (IsScreenTransitioning()) return;
 
 	m_pPlayerShip->HandleInput(input);
+	//if (input.IsKeyDown(Key::X)) {
+	//	SpawnSuperExplosion(m_pPlayerShip);
+	//}
 }
 
 
@@ -159,6 +171,7 @@ void Level::Update(const GameTime& gameTime)
 		}
 		
 	}
+
 }
 
 
@@ -214,6 +227,29 @@ void Level::SpawnExplosion(GameObject *pExplodingObject)
 
 	const float aproximateTextureRadius = 120;
 	const float objectRadius = pExplodingObject->GetCollisionRadius();
+	const float scaleToObjectSize = (1 / aproximateTextureRadius) * objectRadius * 2;
+	const float dramaticEffect = 2.2f;
+	const float scale = scaleToObjectSize * dramaticEffect;
+	pExplosion->Activate(pExplodingObject->GetPosition(), scale);
+}
+
+void Level::SpawnSuperExplosion(GameObject* pExplodingObject)
+{
+	Explosion* pExplosion = nullptr;
+
+	for (unsigned int i = 0; i < s_explosions.size(); i++)
+	{
+		if (!s_explosions[i]->IsActive())
+		{
+			pExplosion = s_explosions[i];
+			break;
+		}
+	}
+
+	if (!pExplosion) return;
+
+	const float aproximateTextureRadius = 2;
+	const float objectRadius = 100;
 	const float scaleToObjectSize = (1 / aproximateTextureRadius) * objectRadius * 2;
 	const float dramaticEffect = 2.2f;
 	const float scale = scaleToObjectSize * dramaticEffect;

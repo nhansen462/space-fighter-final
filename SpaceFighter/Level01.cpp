@@ -9,6 +9,12 @@ void Level01::LoadContent(ResourceManager& resourceManager)
 	// Setup enemy ships
 	Texture *pTexture = resourceManager.Load<Texture>("Textures\\BioEnemyShip.png");
 
+	AudioSample* pBackground = resourceManager.Load<AudioSample>("Audio\\Music\\Voyage1969.mp3");
+	pBackground->SetVolume(0.15f);
+	pBackground->SetLooping(true);
+	SetBackgroundAudio(pBackground);
+	pBackground->Play();
+
 	const int COUNT = 21;
 
 	double xPositions[COUNT] =

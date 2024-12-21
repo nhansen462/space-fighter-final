@@ -58,6 +58,8 @@ public:
 		@param position The position to spawn the explosion at. */
 	virtual void SpawnExplosion(GameObject* pExplodingObject);
 
+	virtual void SpawnSuperExplosion(GameObject* pExplodingObject);
+
 	/** @brief Set the background texture for the level.
 		@param pBackground A pointer to the texture to use as the background. */
 	virtual void SetBackground(Texture* pBackground) { m_pBackground = pBackground; }

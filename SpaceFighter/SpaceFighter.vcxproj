@@ -173,6 +173,7 @@
     <ClCompile Include="AnnoyingEnemyShip.cpp" />
     <ClCompile Include="BioEnemyShip.cpp" />
     <ClCompile Include="Blaster.cpp" />
+    <ClCompile Include="Bomb.cpp" />
     <ClCompile Include="CollisionManager.cpp" />
     <ClCompile Include="CollisionType.cpp" />
     <ClCompile Include="EnemyShip.cpp" />
@@ -206,6 +207,7 @@
     <ClInclude Include="AnnoyingEnemyShip.h" />
     <ClInclude Include="BioEnemyShip.h" />
     <ClInclude Include="Blaster.h" />
+    <ClInclude Include="Bomb.h" />
     <ClInclude Include="CollisionManager.h" />
     <ClInclude Include="CollisionType.h" />
     <ClInclude Include="EnemyShip.h" />
